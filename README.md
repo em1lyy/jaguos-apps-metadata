@@ -1,2 +1,2 @@
 # jaguos-apps-metadata
-Every App that is shown in Apps when it's installed on JaguOS.
+Every app for JaguOS that is shown in "Apps"
