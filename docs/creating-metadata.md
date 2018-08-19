@@ -13,4 +13,4 @@ Every application requires:
   
 These optional scripts can also be included:
 * `postinstall.sh` (executed after installation)
-* `postremove.sh` (executed before installation)
+* `postremove.sh` (executed after removal)
