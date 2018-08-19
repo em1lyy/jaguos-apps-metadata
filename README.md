@@ -1,3 +1,3 @@
 # jaguos-apps-metadata
-Every app for JaguOS that is shown in "Apps".
-Documenation is in the `docs` folder.
+Every app for JaguOS that is shown in "Apps".  
+Documentation is in the `docs` folder.
