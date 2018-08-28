@@ -28,18 +28,24 @@ PACKAGE="${package}"
 EOL
 
 echo Metadata saved.
-echo Path to Icon file \(*.png, NONE for force Theme Icon\): 
+echo Path to icon file \(*.png, null to force theme icon\): 
 read iconpath
 if [${iconpath} = "NONE"]
 then
-    echo No Icon.
+    echo No icon.
 else
     cp ${iconpath} ./applications/$name/icon.png
+    echo Icon copied.
 fi
-echo Icon copied.
 
-echo Creating empty post-install and post-remove shell files...
-echo You can edit them later.
-echo "" >> ./applications/$name/postinstall.sh
-echo "" >> ./applications/$name/postremove.sh
+read -p "Create post-install and post-remove script? " -n 1 -r
+echo  
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo Creating empty post-install and post-remove shell scripts.
+    echo You can edit them later.
+    touch ./applications/$name/post-install.sh
+    touch ./applications/$name/post-remove.sh
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
 echo Done.
