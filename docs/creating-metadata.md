@@ -15,7 +15,7 @@ These optional scripts can also be included:
 * `post-install.sh` (executed after installation)
 * `post-remove.sh` (executed after removal)
 
-### Adding Apps via script
+### Adding applications via script
 This repository includes a file called `add-app.sh`.
 If you don't want to create all the files manually,
 just run it, provide the information needed and
