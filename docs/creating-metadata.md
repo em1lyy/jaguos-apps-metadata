@@ -8,8 +8,8 @@ The `template` application can be used as a starting point.
   
 Every application requires:
 * `metadata.conf` (Explained in the template)
-* `icon.png` (Application's icon that is PNG or SVG and exactly 64x64, if you don't include this file, the Theme Icon is forced.)
-* `screenshot-0.jpg` (Screenshot of the application. More can be added by incrementing the number)
+* `icon.png` (Application's icon that is PNG or SVG and exactly 64x64. If you don't include this file, the Theme Icon is forced.)
+* `screenshot-0.jpg` (Screenshot of the application. More can be added by incrementing the number.)
   
 These optional scripts can also be included:
 * `post-install.sh` (executed after installation)
@@ -18,5 +18,5 @@ These optional scripts can also be included:
 ### Adding applications via script
 This repository includes a file called `add-app.sh`.
 If you don't want to create all the files manually,
-just run it, provide the information needed and
-voila! You're done!
+just execute it and provide the information for the application.
+Then it creates the metadata automatically.
