@@ -1,23 +1,31 @@
 #!/bin/bash
 
-echo Please provide some information about the App you want to add.
+echo Please provide some information about the application you want to add.
+echo 
 echo App Name: 
 read name
+echo 
 echo Developer: 
 read dev 
+echo 
 echo URL: 
 read url
-echo Theme Icon: 
+echo 
+echo Theme Icon \(null if there is none\): 
 read themeicon
+echo 
 echo Summary/Short Description: 
 read summary
+echo 
 echo Description: 
 read description
+echo 
 echo Package Name \(pacman\): 
 read package
+echo 
 
-mkdir -p ./applications/$name
-cat > ./applications/$name/metadata.conf << EOL
+mkdir -p "./applications/$name"
+cat > "./applications/$name/metadata.conf" << EOL
 NAME="${name}"
 DEVELOPER="${dev}"
 URL="${url}"
@@ -27,20 +35,24 @@ DESCRIPTION="${description}"
 PACKAGE="${package}"
 EOL
 
-echo Metadata saved.
+echo Saved metadata.
+echo 
+
 echo Path to icon file \(*.png, null to force theme icon\): 
 read iconpath
-if [${iconpath} = "NONE"]
+if [ ${iconpath} == "null" ]
 then
-    echo No icon.
+    echo No icon file.
+    echo 
 else
     cp ${iconpath} ./applications/$name/icon.png
-    echo Icon copied.
+    echo Copied icon file.
+    echo 
 fi
 
-read -p "Create post-install and post-remove script? " -n 1 -r
+read -p "Create post-install and post-remove script? [N/y] " -n 1 -r
 echo  
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo Creating empty post-install and post-remove shell scripts.
     echo You can edit them later.
