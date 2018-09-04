@@ -2,6 +2,9 @@
 
 echo Please provide some information about the application you want to add.
 echo 
+echo App ID/Folder Name: 
+read id
+echo 
 echo App Name: 
 read name
 echo 
@@ -24,8 +27,8 @@ echo Package Name \(pacman\):
 read package
 echo 
 
-mkdir -p "./applications/$name"
-cat > "./applications/$name/metadata.conf" << EOL
+mkdir -p "./applications/$id"
+cat > "./applications/$id/metadata.conf" << EOL
 NAME="${name}"
 DEVELOPER="${dev}"
 URL="${url}"
@@ -45,7 +48,7 @@ then
     echo No icon file.
     echo 
 else
-    cp ${iconpath} ./applications/$name/icon.png
+    cp ${iconpath} ./applications/$id/icon.png
     echo Copied icon file.
     echo 
 fi
@@ -56,8 +59,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo Creating empty post-install and post-remove shell scripts.
     echo You can edit them later.
-    touch ./applications/$name/post-install.sh
-    touch ./applications/$name/post-remove.sh
+    touch ./applications/$id/post-install.sh
+    touch ./applications/$id/post-remove.sh
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
 fi
 echo Done.
